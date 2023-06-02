@@ -10,7 +10,6 @@ class RampUpLoadUser(HttpUser):
 
     @task
     def hello_world(self):
-        # This method will run an HTTP GET request on the path `/`
         self.client.get("/")
 
 

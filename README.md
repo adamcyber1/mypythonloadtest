@@ -20,7 +20,7 @@ flask run --port 8080
 To run with a more performance web server, run: 
 
 ```commandline
- waitress-serve --port=8080 --threads 16 app:app
+ waitress-serve --port=8080 --threads 24 app:app
 ```
 
 2. Run the BasicUser load test:

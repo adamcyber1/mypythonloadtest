@@ -11,26 +11,28 @@ class CustomLoadUser(HttpUser):
         self.client.get("/")
 
 
+# the user doesn't change, just the LoadTestShape
+
 class PeakLoad(LoadTestShape):
     steps = [
-        {"duration": 60, "users": 10, "spawn_rate": 2},
-        {"duration": 120, "users": 20, "spawn_rate": 2},
-        {"duration": 180, "users": 60, "spawn_rate": 2},
-        {"duration": 240, "users": 90, "spawn_rate": 2},
-        {"duration": 300, "users": 150, "spawn_rate": 2},
-        {"duration": 360, "users": 200, "spawn_rate": 2},
-        {"duration": 420, "users": 150, "spawn_rate": 2},
-        {"duration": 480, "users": 80, "spawn_rate": 2},
-        {"duration": 540, "users": 40, "spawn_rate": 2},
-        {"duration": 600, "users": 20, "spawn_rate": 2},
-        {"duration": 660, "users": 10, "spawn_rate": 2}
+        {"start_time": 60, "users": 10, "spawn_rate": 2},
+        {"start_time": 120, "users": 20, "spawn_rate": 2},
+        {"start_time": 180, "users": 60, "spawn_rate": 2},
+        {"start_time": 240, "users": 90, "spawn_rate": 2},
+        {"start_time": 300, "users": 150, "spawn_rate": 2},
+        {"start_time": 360, "users": 200, "spawn_rate": 2},
+        {"start_time": 420, "users": 150, "spawn_rate": 2},
+        {"start_time": 480, "users": 80, "spawn_rate": 2},
+        {"start_time": 540, "users": 40, "spawn_rate": 2},
+        {"start_time": 600, "users": 20, "spawn_rate": 2},
+        {"start_time": 660, "users": 10, "spawn_rate": 2}
     ]
 
     def tick(self):
         run_time = self.get_run_time()
 
         for step in self.steps:
-            if run_time < step["duration"]:
+            if run_time < step["start_time"]:
                 tick = (step["users"], step["spawn_rate"])
                 return tick
 
