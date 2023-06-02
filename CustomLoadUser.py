@@ -13,15 +13,17 @@ class CustomLoadUser(HttpUser):
 
 class PeakLoad(LoadTestShape):
     steps = [
-        {"duration": 60, "users": 10, "spawn_rate": 1},
-        {"duration": 120, "users": 20, "spawn_rate": 1},
-        {"duration": 180, "users": 40, "spawn_rate": 1},
-        {"duration": 240, "users": 80, "spawn_rate": 1},
-        {"duration": 300, "users": 120, "spawn_rate": 1},
-        {"duration": 360, "users": 80, "spawn_rate": 1},
-        {"duration": 420, "users": 40, "spawn_rate": 1},
-        {"duration": 480, "users": 20, "spawn_rate": 1},
-        {"duration": 540, "users": 10, "spawn_rate": 1},
+        {"duration": 60, "users": 10, "spawn_rate": 2},
+        {"duration": 120, "users": 20, "spawn_rate": 2},
+        {"duration": 180, "users": 60, "spawn_rate": 2},
+        {"duration": 240, "users": 90, "spawn_rate": 2},
+        {"duration": 300, "users": 150, "spawn_rate": 2},
+        {"duration": 360, "users": 200, "spawn_rate": 2},
+        {"duration": 420, "users": 150, "spawn_rate": 2},
+        {"duration": 480, "users": 80, "spawn_rate": 2},
+        {"duration": 540, "users": 40, "spawn_rate": 2},
+        {"duration": 600, "users": 20, "spawn_rate": 2},
+        {"duration": 660, "users": 10, "spawn_rate": 2}
     ]
 
     def tick(self):
