@@ -43,5 +43,13 @@ This will run a load test with 1 user for 30 seconds.
  locust --autostart --host http://127.0.0.1:8080 -f CustomLoadUser.py
 ```
 
+### Comparing Flask And Quart
+
+```bash
+hypercorn quart-app-network-bound:app  # to run async web server
+waitress-serve --port=8000 flask_app_network_bound:app # to run sync web server
+locust --autostart --host http://127.0.0.1:8000 -f RampUpLoadUser.py # to run load test
+```
+
 ### Distributed load test 
 TBC
